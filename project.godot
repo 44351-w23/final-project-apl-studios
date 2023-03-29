@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Godot FPS"
-run/main_scene="res://assets/Ruin_Level_Objects/Ruins_Level.tscn"
+run/main_scene="res://General/Main_Menu.tscn"
 config/icon="res://General/FPS_project_icon.png"
+
+[autoload]
+
+Globals="*res://globals.gd"
 
 [display]
 
