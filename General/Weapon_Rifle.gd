@@ -73,6 +73,7 @@ func unequip_weapon():
 		return true
 		
 	return false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func reset_weapon():
+	ammo_in_weapon = 50
+	spare_ammo = 100

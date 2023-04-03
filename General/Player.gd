@@ -37,7 +37,7 @@ var health = 100
 
 var UI_status_label
 
-var simple_audio_player = preload("res://General/Simple_Audio_Player.tscn")
+
 
 #controller stuff - may need to adjust #s
 var JOYPAD_SENSITIVITY = 2
@@ -93,8 +93,8 @@ func _ready():
 	
 	UI_status_label = $HUD/Panel/Gun_label
 	flashlight = $Rotation_Helper/Flashlight
-	#globals = get_node("/root/Globals")
-	#global_transform.origin = globals.get_respawn_position()
+	globals = get_node("/root/Globals")
+	global_transform.origin = globals.get_respawn_position()
 
 func _physics_process(delta):
 	if !is_dead:
@@ -439,10 +439,7 @@ func process_reloading(delta):
 		reloading_weapon = false
 
 func create_sound(sound_name, position=null):
-	var audio_clone = simple_audio_player.instance()
-	var scene_root = get_tree().root.get_children()[0]
-	scene_root.add_child(audio_clone)
-	audio_clone.play_sound(sound_name, position)
+	globals.play_sound(sound_name, false, position)
 
 func add_health(additional_health):
 	health += additional_health

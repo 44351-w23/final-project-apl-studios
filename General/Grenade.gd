@@ -36,6 +36,7 @@ func _process(delta):
 				if body.has_method("bullet_hit"):
 					body.bullet_hit(GRENADE_DAMAGE, body.global_transform.looking_at(global_transform.origin, Vector3(0,1,0)))
 					# play a sound
+					#look at how the sounds for guns are done
 		if explosion_wait_timer < EXPLOSION_WAIT_TIME:
 			explosion_wait_timer += delta
 			
