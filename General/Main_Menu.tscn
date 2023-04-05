@@ -86,7 +86,6 @@ playback_speed = 0.18
 anims/Background_Animation = SubResource( 3 )
 
 [node name="Start_Menu" type="Panel" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0.901961 )
 margin_right = 330.0
 margin_bottom = 720.0
@@ -156,6 +155,7 @@ custom_fonts/font = SubResource( 5 )
 text = "Quit"
 
 [node name="Level_Select_Menu" type="Panel" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.901961 )
 margin_right = 330.0
 margin_bottom = 720.0

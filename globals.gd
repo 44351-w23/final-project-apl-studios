@@ -92,7 +92,7 @@ func play_sound(sound_name, loop_sound=false, sound_position= null):
 		add_child(new_audio)
 		created_audio.append(new_audio)
 		
-		new_audio.pla_sound(audio_clips[sound_name], sound_position)
+		new_audio.play_sound(audio_clips[sound_name], sound_position)
 	
 	else:
 		print("ERROR: cannot play sound that does not exist in audio_clips!")
