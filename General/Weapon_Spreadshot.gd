@@ -15,9 +15,9 @@ var bullet_scene = preload("Bullet_Scene2.tscn")
 var player_node = null #used to hold the Player.gd
 #most var are used so can call them in Player.gd
 
-var ammo_in_weapon = 6 #The amount of ammo currently in the pistol
-var spare_ammo = 100 #The amount of ammo we have left in reserve for the pistol
-const AMMO_IN_MAG = 6 #The amount of ammo in a fully reloaded weapon/magazine
+var ammo_in_weapon = 8 #The amount of ammo currently in the pistol
+var spare_ammo = 20 #The amount of ammo we have left in reserve for the pistol
+const AMMO_IN_MAG = 8 #The amount of ammo in a fully reloaded weapon/magazine
 
 var spread = 0
 
