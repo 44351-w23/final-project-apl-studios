@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/Colors.material" type="Material" id=1]
 [ext_resource path="res://assets/Emission.material" type="Material" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://General/Weapon_Pistol.gd" type="Script" id=11]
 [ext_resource path="res://General/Weapon_Rifle.gd" type="Script" id=12]
 [ext_resource path="res://General/Weapon_Knife.gd" type="Script" id=13]
+[ext_resource path="res://General/weapons_test.gd" type="Script" id=14]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 1.2
@@ -4145,6 +4146,10 @@ shape = SubResource( 22 )
 [node name="Pistol_Point" type="Spatial" parent="Rotation_Helper/Gun_Fire_Points"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.436506, 11.3604, 4.77607 )
 script = ExtResource( 11 )
+
+[node name="Pistol_Point2" type="Spatial" parent="Rotation_Helper/Gun_Fire_Points"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.436506, 11.3604, 4.77607 )
+script = ExtResource( 14 )
 
 [node name="Gun_Aim_Point" type="Spatial" parent="Rotation_Helper"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.307539, 20.0487 )

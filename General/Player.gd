@@ -26,9 +26,9 @@ var flashlight
 var animation_manager
 
 var current_weapon_name = "UNARMED"
-var weapons = {"UNARMED":null, "KNIFE":null, "PISTOL":null, "RIFLE":null}
-const WEAPON_NUMBER_TO_NAME = {0: "UNARMED", 1:"KNIFE", 2:"PISTOL", 3:"RIFLE"}
-const WEAPON_NAME_TO_NUMBER = {"UNARMED":0, "KNIFE":1, "PISTOL":2, "RIFLE":3}
+var weapons = {"UNARMED":null, "KNIFE":null, "PISTOL":null,"PISTOL2":null, "RIFLE":null}
+const WEAPON_NUMBER_TO_NAME = {0: "UNARMED", 1:"KNIFE", 2:"PISTOL", 3:"RIFLE", 4:"PISTOL2"}
+const WEAPON_NAME_TO_NUMBER = {"UNARMED":0, "KNIFE":1, "PISTOL":2, "RIFLE":3, "PISTOL2":4}
 var changing_weapon = false
 var changing_weapon_name = "UNARMED"
 var reloading_weapon = false
@@ -79,6 +79,7 @@ func _ready():
 	weapons["KNIFE"] = $Rotation_Helper/Gun_Fire_Points/Knife_Point
 	weapons["PISTOL"] = $Rotation_Helper/Gun_Fire_Points/Pistol_Point
 	weapons["RIFLE"] = $Rotation_Helper/Gun_Fire_Points/Rifle_Point
+	weapons["PISTOL2"] =  $Rotation_Helper/Gun_Fire_Points/Pistol_Point2
 	
 	var gun_aim_point_pos = $Rotation_Helper/Gun_Aim_Point.global_transform.origin
 	
@@ -183,7 +184,9 @@ func process_input(delta):
 		weapon_change_number = 2
 	if Input.is_key_pressed(KEY_4):
 		weapon_change_number = 3
-	
+	if Input.is_key_pressed(KEY_5):
+		weapon_change_number = 4
+		
 	if Input.is_action_just_pressed("shift_weapon_positive"):
 		weapon_change_number += 1
 	if Input.is_action_just_pressed("shift_weapon_negative"):
