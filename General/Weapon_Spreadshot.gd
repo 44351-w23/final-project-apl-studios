@@ -44,37 +44,37 @@ func fire_weapon():
 	clone.global_transform = self.global_transform
 	clone.scale = Vector3(4,4,4)
 	clone.BULLET_DAMAGE = DAMAGE
-	clone.rotate(Vector3(1,0,0), 6.23)
+	clone.rotate(Vector3(1,0,0), 6.23)#6.23
 
 	clone2.global_transform = self.global_transform
 	clone2.scale = Vector3(4,4,4)
 	clone2.BULLET_DAMAGE = DAMAGE
-	clone2.rotate(Vector3(0, 1, 0), 6.2)
+	clone2.rotate(Vector3(0, 1, 0), 6.2)#6.2
 
 	clone3.global_transform = self.global_transform
 	clone3.scale = Vector3(4,4,4)
 	clone3.BULLET_DAMAGE = DAMAGE
-	clone3.rotate(Vector3(0, 1, 0), 6.15)
+	clone3.rotate(Vector3(0, 1, 0), 6.15)#6.15
 
 	clone4.global_transform = self.global_transform
 	clone4.scale = Vector3(4,4,4)
 	clone4.BULLET_DAMAGE = DAMAGE
-	clone4.rotate(Vector3(0,1,0), 6.35)
+	clone4.rotate(Vector3(0,1,0), 6.35)#6.35
 
 	clone5.global_transform = self.global_transform
 	clone5.scale = Vector3(4,4,4)
 	clone5.BULLET_DAMAGE = DAMAGE
-	clone5.rotate(Vector3(0,1,0), 6.4)
+	clone5.rotate(Vector3(0,1,0), 6.4)#6.4
 
 	clone6.global_transform = self.global_transform
 	clone6.scale = Vector3(4,4,4)
 	clone6.BULLET_DAMAGE = DAMAGE
-	clone6.rotate(Vector3(1,0,0), 6.37)
+	clone6.rotate(Vector3(1,0,0), 6.37)#6.34
 
 	clone7.global_transform = self.global_transform
 	clone7.scale = Vector3(4,4,4)
 	clone7.BULLET_DAMAGE = DAMAGE
-	clone7.rotate(Vector3(1,0,0), 6.23)
+	clone7.rotate(Vector3(1,0,0), 6.23)#6.23
 	ammo_in_weapon -= 1
 	player_node.create_sound("Pistol_shot", self.global_transform.origin)
 
@@ -125,3 +125,8 @@ func unequip_weapon():
 func reset_weapon():
 	ammo_in_weapon = 10
 	spare_ammo = 20
+	
+func randomNum():
+	var rng = RandomNumberGenerator.new()
+	var my_random_number = rng.randf_range(6.1, 6.4)
+	return my_random_number
