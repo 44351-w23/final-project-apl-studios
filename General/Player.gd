@@ -109,7 +109,7 @@ func _physics_process(delta):
 	process_UI(delta)
 	process_respawn(delta)
 
-func process_input(delta):
+func process_input(_delta):
 	if is_dead:
 		return
 	#--------------------------------------------
@@ -326,7 +326,7 @@ func process_movement(delta):
 	vel.z = hvel.z
 	vel = move_and_slide(vel, Vector3(0,1,0), 0.05, 4, deg2rad(MAX_SLOPE_ANGLE))
 
-func process_view_input(delta):
+func process_view_input(_delta):
 	if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
 		# NOTE: Until some bugs relating to captured mice are fixed, we cannot put the mouse view
 		# rotation code here. Once the bug(s) are fixed, code for mouse view rotation code will go here!
@@ -352,7 +352,7 @@ func process_view_input(delta):
 			
 			#-------------------------------------------------
 
-func process_changing_weapons(delta):
+func process_changing_weapons(_delta):
 	if changing_weapon == true:
 		var weapon_unequipped = false
 		var current_weapon = weapons[current_weapon_name]
@@ -422,7 +422,7 @@ func _input(event):
 		camera_rot.x = clamp(camera_rot.x, -70, 70) # player can't rotate themselves upside down
 		rotation_helper.rotation_degrees = camera_rot
 
-func process_UI(delta):
+func process_UI(_delta):
 	if current_weapon_name == "UNARMED" or current_weapon_name == "KNIFE":
 		#first line health, second grenade
 		UI_status_label.text = "Health: " + str(health) + \
@@ -434,7 +434,7 @@ func process_UI(delta):
 		"\nAMMO: " + str(current_weapon.ammo_in_weapon) + "/" + str(current_weapon.spare_ammo) + \
 		"\n" + current_grenade + ": " + str(grenade_amount[current_grenade])
 
-func process_reloading(delta):
+func process_reloading(_delta):
 	if reloading_weapon == true:# player is trying to reload
 		var current_weapon = weapons[current_weapon_name]
 		if current_weapon != null: #check to see if unarmed
@@ -457,7 +457,7 @@ func add_grenade(additional_grenade):
 	grenade_amount[current_grenade] += additional_grenade
 	grenade_amount[current_grenade] = clamp(grenade_amount[current_grenade], 0, 4)
 
-func bullet_hit(damage, bullet_hit_pos):
+func bullet_hit(damage, _bullet_hit_pos):
 	health -= damage
 
 func process_respawn(delta):

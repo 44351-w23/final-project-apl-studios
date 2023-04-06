@@ -1,6 +1,6 @@
 extends Spatial
 
-const DAMAGE = 15 #The amount of damage a single bullet does
+const DAMAGE = 10 #The amount of damage a single bullet does
 const CAN_RELOAD = true
 const CAN_REFILL = true
 
@@ -10,14 +10,17 @@ const RELOADING_ANIM_NAME = "Pistol_reload"#The name of the pistols reload anima
 
 var is_weapon_enabled = false #checking if we can use a weapon
 
-var bullet_scene = preload("Bullet_Scene.tscn")
+var bullet_scene = preload("Bullet_Scene2.tscn")
 
 var player_node = null #used to hold the Player.gd
 #most var are used so can call them in Player.gd
 
-var ammo_in_weapon = 11 #The amount of ammo currently in the pistol
-var spare_ammo = 20 #The amount of ammo we have left in reserve for the pistol
-const AMMO_IN_MAG = 11 #The amount of ammo in a fully reloaded weapon/magazine
+var ammo_in_weapon = 6 #The amount of ammo currently in the pistol
+var spare_ammo = 100 #The amount of ammo we have left in reserve for the pistol
+const AMMO_IN_MAG = 6 #The amount of ammo in a fully reloaded weapon/magazine
+
+var spread = 0
+
 func _ready():
 	pass
 
@@ -28,6 +31,7 @@ func fire_weapon():
 	var clone4 = bullet_scene.instance()
 	var clone5 = bullet_scene.instance()
 	var clone6 = bullet_scene.instance()
+	var clone7 = bullet_scene.instance()
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(clone)
 	scene_root.add_child(clone2)
@@ -35,25 +39,42 @@ func fire_weapon():
 	scene_root.add_child(clone4)
 	scene_root.add_child(clone5)
 	scene_root.add_child(clone6)
+	scene_root.add_child(clone7)
 	
 	clone.global_transform = self.global_transform
 	clone.scale = Vector3(4,4,4)
 	clone.BULLET_DAMAGE = DAMAGE
+	clone.rotate(Vector3(1,0,0), 6.23)
+
 	clone2.global_transform = self.global_transform
 	clone2.scale = Vector3(4,4,4)
 	clone2.BULLET_DAMAGE = DAMAGE
+	clone2.rotate(Vector3(0, 1, 0), 6.2)
+
 	clone3.global_transform = self.global_transform
 	clone3.scale = Vector3(4,4,4)
 	clone3.BULLET_DAMAGE = DAMAGE
+	clone3.rotate(Vector3(0, 1, 0), 6.15)
+
 	clone4.global_transform = self.global_transform
 	clone4.scale = Vector3(4,4,4)
 	clone4.BULLET_DAMAGE = DAMAGE
+	clone4.rotate(Vector3(0,1,0), 6.35)
+
 	clone5.global_transform = self.global_transform
 	clone5.scale = Vector3(4,4,4)
 	clone5.BULLET_DAMAGE = DAMAGE
+	clone5.rotate(Vector3(0,1,0), 6.4)
+
 	clone6.global_transform = self.global_transform
 	clone6.scale = Vector3(4,4,4)
 	clone6.BULLET_DAMAGE = DAMAGE
+	clone6.rotate(Vector3(1,0,0), 6.37)
+
+	clone7.global_transform = self.global_transform
+	clone7.scale = Vector3(4,4,4)
+	clone7.BULLET_DAMAGE = DAMAGE
+	clone7.rotate(Vector3(1,0,0), 6.23)
 	ammo_in_weapon -= 1
 	player_node.create_sound("Pistol_shot", self.global_transform.origin)
 

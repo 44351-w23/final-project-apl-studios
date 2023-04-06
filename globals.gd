@@ -28,7 +28,7 @@ func _ready():
 	randomize()
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if popup == null:
 			popup = POPUP_SCENE.instance()

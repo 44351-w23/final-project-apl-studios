@@ -7,6 +7,7 @@ const KILL_TIMER = 4
 var timer = 0
 
 var hit_something = false
+var spread = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
