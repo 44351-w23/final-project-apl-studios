@@ -431,7 +431,7 @@ func process_UI(_delta):
 		#first line health, seconnd weapon ammo, third grenade
 		var current_weapon = weapons[current_weapon_name]
 		UI_status_label.text = "Health: " + str(health) + \
-		"\nAMMO: " + str(current_weapon.ammo_in_weapon) + "/" + str(current_weapon.spare_ammo) + \
+		"\nAmmo: " + str(current_weapon.ammo_in_weapon) + "/" + str(current_weapon.spare_ammo) + \
 		"\n" + current_grenade + ": " + str(grenade_amount[current_grenade])
 
 func process_reloading(_delta):

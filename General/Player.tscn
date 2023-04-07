@@ -4241,9 +4241,9 @@ expand = true
 
 [node name="Panel" type="Panel" parent="HUD"]
 modulate = Color( 1, 1, 1, 0.705882 )
-margin_top = 720.0
+margin_top = 704.0
 margin_right = 370.0
-margin_bottom = 880.0
+margin_bottom = 864.0
 custom_styles/panel = SubResource( 24 )
 
 [node name="Panel_border" type="Panel" parent="HUD/Panel"]
