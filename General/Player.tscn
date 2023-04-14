@@ -2874,7 +2874,6 @@ tracks/34/keys = PoolRealArray( 0, 1, 1.78814e-07, -8.34465e-07, -7.45058e-08, 0
 
 [sub_resource type="Animation" id=18]
 length = 0.666667
-step = 1.0
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature")
 tracks/0/interp = 1
