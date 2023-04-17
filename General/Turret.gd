@@ -2,7 +2,7 @@ extends Spatial
 
 
 export (bool) var use_raycast = false
-
+signal turret_Killed
 # How much damage each bullet option does
 const TURRET_DAMAGE_BULLET = 20
 const TURRET_DAMAGE_RAYCAST = 5
@@ -225,10 +225,9 @@ func body_exited_vision(body):
 func bullet_hit(damage, bullet_hit_pos):
 	# Remove however much damage we have received from our health
 	turret_health -= damage
-	
 	# If the turret is destroyed, start emitting smoke particles and set
 	# the destroyed timer so we can start repairing ourself.
 	if turret_health <= 0:
 		smoke_particles.emitting = true
 		destroyed_timer = DESTROYED_TIME
-		
+		emit_signal("turret_Killed")

@@ -469,5 +469,45 @@ transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -10, 27, 
 [node name="Target_Whole" parent="." instance=ExtResource( 12 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46, 8, 1 )
 
-[node name="Turret" parent="." instance=ExtResource( 13 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 26, 40 )
+[node name="turrents" type="Spatial" parent="."]
+
+[node name="Turret" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 26, 43 )
+
+[node name="Turret2" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -27, 14, 89 )
+
+[node name="Turret8" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 28, 14, 89 )
+
+[node name="Turret3" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 31, 14, -19 )
+
+[node name="Turret7" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -29, 14, -19 )
+
+[node name="Turret4" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19, 26, 31 )
+
+[node name="Turret5" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 65.0491, -22.2241, -53.392 )
+
+[node name="Turret6" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -63.9509, -21.2241, -53.392 )
+
+[node name="Turret9" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -63.9509, -21.2241, 127.608 )
+
+[node name="Turret10" parent="turrents" instance=ExtResource( 13 )]
+transform = Transform( -2.38419e-07, 0, 1, 0, 1, 0, -1, 0, -2.38419e-07, 63.0491, -21.2241, 127.608 )
+
+[connection signal="turret_Killed" from="turrents/Turret" to="Player" method="_on_Turret_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret2" to="Player" method="_on_Turret2_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret8" to="Player" method="_on_Turret8_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret3" to="Player" method="_on_Turret3_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret7" to="Player" method="_on_Turret7_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret4" to="Player" method="_on_Turret4_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret5" to="Player" method="_on_Turret5_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret6" to="Player" method="_on_Turret6_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret9" to="Player" method="_on_Turret9_turret_Killed"]
+[connection signal="turret_Killed" from="turrents/Turret10" to="Player" method="_on_Turret10_turret_Killed"]

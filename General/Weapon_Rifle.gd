@@ -1,6 +1,6 @@
 extends Spatial
 
-const DAMAGE = 4
+const DAMAGE = 10
 const CAN_RELOAD = true
 const CAN_REFILL = true
 

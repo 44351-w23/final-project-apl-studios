@@ -36,7 +36,9 @@ var reloading_weapon = false
 var health = 100
 
 var UI_status_label
+
 var UI_score_label
+var score = 0
 
 #controller stuff - may need to adjust #s
 var JOYPAD_SENSITIVITY = 2
@@ -424,6 +426,7 @@ func _input(event):
 		rotation_helper.rotation_degrees = camera_rot
 
 func process_UI(_delta):
+	UI_score_label.text = "Score: " + str(score)
 	if current_weapon_name == "UNARMED" or current_weapon_name == "KNIFE":
 		#first line health, second grenade
 		UI_status_label.text = "Health: " + str(health) + \
@@ -512,3 +515,42 @@ func process_respawn(delta):
 			current_grenade = "Grenade"
 			
 			is_dead = false
+
+func _on_Turret_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret2_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret8_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret3_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret7_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret4_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret5_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret6_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret9_turret_Killed():
+	score = score + 1
+
+
+func _on_Turret10_turret_Killed():
+	score = score + 1
