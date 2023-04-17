@@ -157,11 +157,11 @@ func fire_bullet():
 		# Set the bullet's global_transform to that of the pistol spawn point (which is this node).
 		clone.global_transform = $Head/Barrel_End.global_transform
 		# The bullet is a little too small (by default), so let's make it bigger!
-		clone.scale = Vector3(8, 8, 8)
+		clone.scale = Vector3(5, 5, 5)
 		# Set how much damage the bullet does
 		clone.BULLET_DAMAGE = TURRET_DAMAGE_BULLET
 		# Set how fast the bullet travels. We want the bullet to travel a little slower than the player
-		clone.BULLET_SPEED = 60
+		clone.BULLET_SPEED = 50
 		
 		# Remove the bullet from the turret
 		ammo_in_turret -= 1
