@@ -36,8 +36,7 @@ var reloading_weapon = false
 var health = 100
 
 var UI_status_label
-
-
+var UI_score_label
 
 #controller stuff - may need to adjust #s
 var JOYPAD_SENSITIVITY = 2
@@ -93,6 +92,8 @@ func _ready():
 	changing_weapon_name = "UNARMED"
 	
 	UI_status_label = $HUD/Panel/Gun_label
+	UI_score_label = $HUD/Panel2/Score_label
+	
 	flashlight = $Rotation_Helper/Flashlight
 	globals = get_node("/root/Globals")
 	global_transform.origin = globals.get_respawn_position()

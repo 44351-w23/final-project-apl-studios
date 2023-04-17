@@ -231,3 +231,4 @@ func bullet_hit(damage, bullet_hit_pos):
 	if turret_health <= 0:
 		smoke_particles.emitting = true
 		destroyed_timer = DESTROYED_TIME
+		
