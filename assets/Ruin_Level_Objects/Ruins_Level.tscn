@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/Ruin_Level_Objects/Ruin_Level_Mesh_Lib.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://General/Player.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://General/RigidBodt_hit_test.gd" type="Script" id=9]
 [ext_resource path="res://General/Health_Pickup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://General/Ammo_Pickup.tscn" type="PackedScene" id=11]
-[ext_resource path="res://General/Target.tscn" type="PackedScene" id=12]
 [ext_resource path="res://General/Turret.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/Ruin_Level_Objects/Respawn_Point_Setter.gd" type="Script" id=14]
 
@@ -465,9 +464,6 @@ kit_size = 1
 
 [node name="Ammo_Pickup4" parent="Ammo_Packs" instance=ExtResource( 11 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -10, 27, 54 )
-
-[node name="Target_Whole" parent="." instance=ExtResource( 12 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46, 8, 1 )
 
 [node name="turrents" type="Spatial" parent="."]
 
