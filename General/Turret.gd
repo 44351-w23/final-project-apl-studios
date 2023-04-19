@@ -59,6 +59,8 @@ var destroyed_timer = 0
 # The bullet scene the turret fires (same scene as the pistol)
 var bullet_scene = preload("res://General/Bullet_Scene.tscn")
 
+var is_alive = true
+
 func _ready():
 	
 	# We want to know when a body has entered/exited our vision area, so we assign the body_entered and body_exited
@@ -88,7 +90,6 @@ func _ready():
 	
 	# make sure our turret has max health at start
 	turret_health = MAX_TURRET_HEALTH
-
 
 func _physics_process(delta):
 	
@@ -141,6 +142,7 @@ func _physics_process(delta):
 		else:
 			turret_health = MAX_TURRET_HEALTH
 			smoke_particles.emitting = false
+			is_alive = true
 
 
 func fire_bullet():
@@ -230,4 +232,6 @@ func bullet_hit(damage, bullet_hit_pos):
 	if turret_health <= 0:
 		smoke_particles.emitting = true
 		destroyed_timer = DESTROYED_TIME
-		emit_signal("turret_Killed")
+		if is_alive == true:
+			emit_signal("turret_Killed")
+			is_alive = false
