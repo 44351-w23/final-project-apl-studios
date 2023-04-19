@@ -87,9 +87,8 @@ anims/Background_Animation = SubResource( 3 )
 
 [node name="Start_Menu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.901961 )
-margin_left = 520.0
-margin_right = 850.0
-margin_bottom = 723.0
+margin_right = 332.0
+margin_bottom = 728.0
 custom_styles/panel = SubResource( 4 )
 
 [node name="Title_Label" type="Label" parent="Start_Menu"]
@@ -252,10 +251,9 @@ expand = true
 [node name="Options_Menu" type="Panel" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.901961 )
-margin_left = 560.0
-margin_top = 64.0
-margin_right = 890.0
-margin_bottom = 784.0
+margin_left = 955.0
+margin_right = 1277.0
+margin_bottom = 706.0
 custom_styles/panel = SubResource( 4 )
 
 [node name="Title_Label" type="Label" parent="Options_Menu"]
