@@ -87,10 +87,9 @@ anims/Background_Animation = SubResource( 3 )
 
 [node name="Start_Menu" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.901961 )
-margin_left = 560.0
-margin_top = 64.0
-margin_right = 890.0
-margin_bottom = 784.0
+margin_left = 520.0
+margin_right = 850.0
+margin_bottom = 723.0
 custom_styles/panel = SubResource( 4 )
 
 [node name="Title_Label" type="Label" parent="Start_Menu"]
@@ -159,10 +158,9 @@ text = "Quit"
 [node name="Level_Select_Menu" type="Panel" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0.901961 )
-margin_left = 560.0
-margin_top = 64.0
-margin_right = 890.0
-margin_bottom = 784.0
+margin_left = 520.0
+margin_right = 850.0
+margin_bottom = 723.0
 custom_styles/panel = SubResource( 4 )
 
 [node name="Title_Label" type="Label" parent="Level_Select_Menu"]
