@@ -3,6 +3,7 @@ extends Spatial
 
 export (bool) var use_raycast = false
 signal turret_Killed
+signal timer_end
 # How much damage each bullet option does
 const TURRET_DAMAGE_BULLET = 20
 const TURRET_DAMAGE_RAYCAST = 5
@@ -60,7 +61,6 @@ var destroyed_timer = 0
 var bullet_scene = preload("res://General/Bullet_Scene.tscn")
 
 var is_alive = true
-
 func _ready():
 	
 	# We want to know when a body has entered/exited our vision area, so we assign the body_entered and body_exited
@@ -140,6 +140,7 @@ func _physics_process(delta):
 		if destroyed_timer > 0:
 			destroyed_timer -= delta
 		else:
+			turretRev()
 			turret_health = MAX_TURRET_HEALTH
 			smoke_particles.emitting = false
 			is_alive = true
@@ -232,6 +233,33 @@ func bullet_hit(damage, bullet_hit_pos):
 	if turret_health <= 0:
 		smoke_particles.emitting = true
 		destroyed_timer = DESTROYED_TIME
+		turretDead()
 		if is_alive == true:
 			emit_signal("turret_Killed")
 			is_alive = false
+
+# making the turret head face up once it hits 0 hp
+func turretDead():
+	var turretHeadRotation = 0
+	$Head/Flash.visible = false
+	$Head/Flash_2.visible = false
+	is_active = false 
+	while turretHeadRotation <= 90:
+		$Head/Turret_Head.rotation_degrees.x = turretHeadRotation
+		_wait(1.5)
+		turretHeadRotation += 5
+	$turretDown.play()
+		
+# reseting the turret after the turrent respawns
+func turretRev():
+	var turretHeadRotation = 90
+	while turretHeadRotation >= 0:
+		$Head/Turret_Head.rotation_degrees.x = turretHeadRotation
+		_wait(1.5)
+		turretHeadRotation -= 5
+	$turretOnline.play()
+		
+		
+	
+func _wait(seconds):
+	yield(get_tree().create_timer(seconds), "timeout")
