@@ -132,6 +132,8 @@ func process_input(_delta):
 	if Input.is_action_pressed("movement_left"):
 		input_movement_vector.x += 1
 	
+			
+	
 	if Input.get_connected_joypads().size() > 0:
 		var joypad_vec = Vector2(0,0)
 		
@@ -170,9 +172,15 @@ func process_input(_delta):
 	#--------------------------------------------------
 	#sprint
 	if Input.is_action_pressed("movement_sprint"):
+		$HUD/SprintPanel/ProgressBar.value -= 1
 		is_sprinting = true
+		if $HUD/SprintPanel/ProgressBar.value == 0:
+			is_sprinting = false
 	else:
 		is_sprinting = false
+		
+	if $HUD/SprintPanel/ProgressBar.value < 100 and Input.is_action_pressed("movement_sprint") == false:
+		$HUD/SprintPanel/ProgressBar.value += 1
 	#--------------------------------------------------
 	
 	#--------------------------------------------------
