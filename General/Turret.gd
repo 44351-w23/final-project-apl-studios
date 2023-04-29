@@ -3,7 +3,11 @@ extends Spatial
 
 export (bool) var use_raycast = false
 signal turret_Killed
+
+signal turret_fire
+
 signal timer_end
+
 # How much damage each bullet option does
 const TURRET_DAMAGE_BULLET = 20
 const TURRET_DAMAGE_RAYCAST = 5
@@ -61,6 +65,9 @@ var destroyed_timer = 0
 var bullet_scene = preload("res://General/Bullet_Scene.tscn")
 
 var is_alive = true
+
+var globals
+
 func _ready():
 	
 	# We want to know when a body has entered/exited our vision area, so we assign the body_entered and body_exited
@@ -90,6 +97,8 @@ func _ready():
 	
 	# make sure our turret has max health at start
 	turret_health = MAX_TURRET_HEALTH
+	
+	globals = get_node("/root/Globals")
 
 func _physics_process(delta):
 	
@@ -145,7 +154,6 @@ func _physics_process(delta):
 			smoke_particles.emitting = false
 			is_alive = true
 
-
 func fire_bullet():
 	# If we are not using raycasting, then spawn a bullet using the bullet scene
 	if use_raycast == false:
@@ -168,6 +176,8 @@ func fire_bullet():
 		
 		# Remove the bullet from the turret
 		ammo_in_turret -= 1
+		emit_signal("turret_fire")
+		create_sound("Pistol_shot", self.global_transform.origin)
 	# Otherwise we are using raycasting (which works most of the time, sometimes it does not for some reason)
 	else:
 		# Rotate the raycast to look at the target (assuring we'll hit the target)
@@ -186,7 +196,7 @@ func fire_bullet():
 		
 		# Remove the bullet from the turret
 		ammo_in_turret -= 1
-	
+		emit_signal("turret_fire")
 	# Make the flash meshes visible
 	node_flash_one.visible = true
 	node_flash_two.visible = true
@@ -199,6 +209,8 @@ func fire_bullet():
 	if ammo_in_turret <= 0:
 		ammo_reload_timer = AMMO_RELOAD_TIME
 
+func create_sound(sound_name, position=null):
+	globals.play_sound(sound_name, false, position)
 
 func body_entered_vision(body):
 	# If we do not have a target, and the body that's entered our
@@ -207,7 +219,6 @@ func body_entered_vision(body):
 		if body is KinematicBody:
 			current_target = body
 			is_active = true
-
 
 func body_exited_vision(body):
 	# If the body that has just left is our target, we need to
@@ -223,7 +234,6 @@ func body_exited_vision(body):
 			fire_timer = 0
 			node_flash_one.visible = false
 			node_flash_two.visible = false
-
 
 func bullet_hit(damage, bullet_hit_pos):
 	# Remove however much damage we have received from our health
@@ -249,7 +259,7 @@ func turretDead():
 		_wait(1.5)
 		turretHeadRotation += 5
 	$turretDown.play()
-		
+
 # reseting the turret after the turrent respawns
 func turretRev():
 	var turretHeadRotation = 90
@@ -258,8 +268,6 @@ func turretRev():
 		_wait(1.5)
 		turretHeadRotation -= 5
 	$turretOnline.play()
-		
-		
-	
+
 func _wait(seconds):
 	yield(get_tree().create_timer(seconds), "timeout")

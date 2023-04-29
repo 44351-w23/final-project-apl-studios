@@ -41,13 +41,6 @@ func fire_weapon():
 	scene_root.add_child(clone6)
 	scene_root.add_child(clone7)
 	
-	if clone.is_colliding():
-		var body = clone.get_collider()
-		
-		if body == player_node:
-			pass
-		elif body.has_method("bullet_hit"):
-			body.bullet_hit(DAMAGE, clone.global_transform)
 	clone.global_transform = self.global_transform
 	clone.scale = Vector3(4,4,4)
 	clone.BULLET_DAMAGE = DAMAGE
