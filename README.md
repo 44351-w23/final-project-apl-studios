@@ -18,4 +18,4 @@ Assets: https://docs.godotengine.org/en/3.1/tutorials/3d/fps_tutorial/part_six.h
 
 
 *STUFF ADDED*:
-From the tutorial we added a spreadshot (weapon), win condition, score, sound for turrets, and turrets being added into other maps and not just the basic map the tutorial originally put them in. Also added turret animations/sounds for on death and when it comes back to life. 
+From the tutorial we added a spreadshot (weapon), win condition, score, sound for turrets, and turrets being added into other maps and not just the basic map the tutorial originally put them in. Also added turret animations/sounds for on death and when it comes back to life. We also added a basic sprint display for the player.
