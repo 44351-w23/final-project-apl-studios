@@ -14,3 +14,8 @@ Things may change and we may decide to go other routes to what we want to add so
 Tutorial we are using: https://docs.godotengine.org/en/3.1/tutorials/3d/fps_tutorial/part_one.html
 
 Assets: https://docs.godotengine.org/en/3.1/tutorials/3d/fps_tutorial/part_six.html (near the bottom of the page)
+
+
+
+*STUFF ADDED*:
+From the tutorial we added a spreadshot (weapon), win condition, score, sound for turrets, and turrets being added into other maps and not just the basic map the tutorial originally put them in. Also added turret animations/sounds for on death and when it comes back to life. 
