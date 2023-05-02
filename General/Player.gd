@@ -67,11 +67,11 @@ var is_dead = false
 
 var globals
 
+const MAIN_MENU_PATH = "res://General/Main_Menu.tscn"
 
 func _ready():
 	camera = $Rotation_Helper/Camera
 	rotation_helper = $Rotation_Helper
-	
 	animation_manager = $Rotation_Helper/Model/Animation_Player
 	animation_manager.callback_function = funcref(self, "fire_bullet")
 
@@ -99,6 +99,7 @@ func _ready():
 	flashlight = $Rotation_Helper/Flashlight
 	globals = get_node("/root/Globals")
 	global_transform.origin = globals.get_respawn_position()
+	score = 0
 
 func _physics_process(delta):
 	if !is_dead:
@@ -435,6 +436,8 @@ func _input(event):
 
 func process_UI(_delta):
 	UI_score_label.text = "Score: " + str(score)
+	if score == 10:
+		process_win(_delta)
 	if current_weapon_name == "UNARMED" or current_weapon_name == "KNIFE":
 		#first line health, second grenade
 		UI_status_label.text = "Health: " + str(health) + \
@@ -523,6 +526,21 @@ func process_respawn(delta):
 			current_grenade = "Grenade"
 			
 			is_dead = false
+
+func process_win(delta):
+	if score == 10:
+		$Body_CollisionShape.disabled = true
+		$Feet_CollisionShape.disabled = true
+		
+		changing_weapon = true
+		changing_weapon_name = "UNARMED"
+		
+		$HUD/Win_screen.visible = true
+		
+		$HUD/Panel.visible = false
+		$HUD/Crosshair.visible = false
+		
+	pass
 
 func _on_Turret_turret_Killed():
 	score = score + 1

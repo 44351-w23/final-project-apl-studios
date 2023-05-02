@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/Ruin_Level_Objects/Ruin_Level_Mesh_Lib.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://General/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://General/RigidBodt_hit_test.gd" type="Script" id=9]
 [ext_resource path="res://General/Health_Pickup.tscn" type="PackedScene" id=10]
 [ext_resource path="res://General/Ammo_Pickup.tscn" type="PackedScene" id=11]
+[ext_resource path="res://General/Simple_Audio_Player.tscn" type="PackedScene" id=12]
 [ext_resource path="res://General/Turret.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/Ruin_Level_Objects/Respawn_Point_Setter.gd" type="Script" id=14]
 
@@ -496,6 +497,8 @@ transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -63.9509,
 
 [node name="Turret10" parent="turrents" instance=ExtResource( 13 )]
 transform = Transform( -2.38419e-07, 0, 1, 0, 1, 0, -1, 0, -2.38419e-07, 63.0491, -21.2241, 127.608 )
+
+[node name="AudioPlayer" parent="." instance=ExtResource( 12 )]
 
 [connection signal="turret_Killed" from="turrents/Turret" to="Player" method="_on_Turret_turret_Killed"]
 [connection signal="turret_Killed" from="turrents/Turret2" to="Player" method="_on_Turret2_turret_Killed"]
