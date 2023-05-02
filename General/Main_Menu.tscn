@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/lightblue_equirectangular.png" type="Texture" id=1]
 [ext_resource path="res://assets/Titillium-Regular.otf" type="DynamicFontData" id=2]
@@ -61,6 +61,13 @@ anti_aliasing_size = 1.0
 
 [sub_resource type="DynamicFont" id=5]
 size = 32
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
@@ -191,10 +198,10 @@ text = "Back"
 [node name="Button_Level_Testing_Area" type="Button" parent="Level_Select_Menu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -70.0
-margin_top = 113.0
-margin_right = 70.0
-margin_bottom = 253.0
+margin_left = -134.0
+margin_top = 120.0
+margin_right = 6.0
+margin_bottom = 260.0
 
 [node name="Icon" type="TextureRect" parent="Level_Select_Menu/Button_Level_Testing_Area"]
 anchor_left = 0.5
@@ -208,13 +215,24 @@ margin_bottom = 60.0
 texture = ExtResource( 3 )
 expand = true
 
+[node name="Test_label" type="Label" parent="Level_Select_Menu/Button_Level_Testing_Area"]
+margin_left = 155.0
+margin_top = 54.0
+margin_right = 278.0
+margin_bottom = 77.0
+custom_fonts/font = SubResource( 6 )
+text = "Testing Level"
+
 [node name="Button_Level_Space" type="Button" parent="Level_Select_Menu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -70.0
+margin_left = -134.0
 margin_top = 275.0
-margin_right = 70.0
+margin_right = 6.0
 margin_bottom = 415.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Icon" type="TextureRect" parent="Level_Select_Menu/Button_Level_Space"]
 anchor_left = 0.5
@@ -228,13 +246,24 @@ margin_bottom = 60.0
 texture = ExtResource( 4 )
 expand = true
 
+[node name="Space_Label" type="Label" parent="Level_Select_Menu/Button_Level_Space"]
+margin_left = 155.0
+margin_top = 53.0
+margin_right = 278.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 6 )
+text = "Space Level"
+
 [node name="Button_Level_Ruins" type="Button" parent="Level_Select_Menu"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -70.0
-margin_top = 433.0
-margin_right = 70.0
-margin_bottom = 573.0
+margin_left = -134.0
+margin_top = 432.0
+margin_right = 6.0
+margin_bottom = 572.0
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Icon" type="TextureRect" parent="Level_Select_Menu/Button_Level_Ruins"]
 anchor_left = 0.5
@@ -247,6 +276,14 @@ margin_right = 60.0
 margin_bottom = 60.0
 texture = ExtResource( 5 )
 expand = true
+
+[node name="Ruins_label" type="Label" parent="Level_Select_Menu/Button_Level_Ruins"]
+margin_left = 153.0
+margin_top = 56.0
+margin_right = 276.0
+margin_bottom = 79.0
+custom_fonts/font = SubResource( 6 )
+text = "Ruins Level"
 
 [node name="Options_Menu" type="Panel" parent="."]
 visible = false
