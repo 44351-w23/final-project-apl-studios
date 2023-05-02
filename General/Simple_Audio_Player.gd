@@ -42,7 +42,3 @@ func sound_finished():
 	else:
 		globals.created_audio.remove(globals.created_audio.find(self))
 		queue_free()
-
-
-func _on_Turret_turret_fire():
-	pass

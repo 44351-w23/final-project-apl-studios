@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=43 format=2]
-=======
-<<<<<<< HEAD
-[gd_scene load_steps=41 format=2]
-=======
-[gd_scene load_steps=43 format=2]
->>>>>>> bd8c5a7750e4743037e71e587d89a39c132664a6
->>>>>>> Stashed changes
 
 [ext_resource path="res://assets/Colors.material" type="Material" id=1]
 [ext_resource path="res://assets/Emission.material" type="Material" id=2]
@@ -3920,22 +3912,6 @@ corner_detail = 3
 anti_aliasing = false
 anti_aliasing_size = 1.0
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-[sub_resource type="DynamicFont" id=25]
-size = 42
-use_filter = true
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=26]
-size = 60
-use_filter = true
-font_data = ExtResource( 8 )
-
-=======
->>>>>>> bd8c5a7750e4743037e71e587d89a39c132664a6
->>>>>>> Stashed changes
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 9 )
 __meta__ = {
@@ -4369,20 +4345,5 @@ margin_bottom = 720.0
 custom_fonts/font = SubResource( 25 )
 text = "You died
 0.00 seconds till respawn"
-align = 1
-valign = 1
-
-[node name="Win_screen" type="ColorRect" parent="HUD"]
-visible = false
-margin_right = 1721.0
-margin_bottom = 893.0
-color = Color( 0.140625, 0.140625, 0.140625, 0.901961 )
-
-[node name="Label" type="Label" parent="HUD/Win_screen"]
-margin_left = 123.0
-margin_right = 1403.0
-margin_bottom = 720.0
-custom_fonts/font = SubResource( 26 )
-text = "You won!"
 align = 1
 valign = 1

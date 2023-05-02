@@ -9,7 +9,6 @@ var timer = 0
 var hit_something = false
 var spread = 0
 
-var player_node = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Area.connect("body_entered", self, "collided") 
@@ -27,8 +26,7 @@ func _process(delta):
 
 func collided(body): #checking wether we hit something or not
 	if hit_something == false: # if the bullet hasnt collided with something already
-		
-		if body.has_method("bullet_hit") && body != player_node:
+		if body.has_method("bullet_hit"):
 			body.bullet_hit(BULLET_DAMAGE, global_transform)
 	
 	hit_something = true#make sure the bullet doesn't hit anything else
